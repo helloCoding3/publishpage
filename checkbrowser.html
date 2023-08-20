@@ -13,7 +13,10 @@
   <h3 id="agent"></h3>
   <script>
     // alert(navigator.userAgent)
-    document.write(navigator.userAgent)
+    document.write(navigator.userAgent);
+    const isweixinBrowser = /(weixin|wechat)/ig.test(navigator.userAgent);
+    // console.log('isweixinBrowser :>> ', isweixinBrowser);
+    document.write(`<h3>isweixinBrowser:${isweixinBrowser}</h3>`);
   </script>
 </body>
 
