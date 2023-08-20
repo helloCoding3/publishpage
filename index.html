@@ -637,6 +637,18 @@
     b {
       font-weight: 600;
     }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-sm {
+      font-size: small;
+    }
+
+    .text-red {
+      color: red;
+    }
   </style>
 </head>
 
@@ -662,9 +674,11 @@
         <h1>官网永久发布页</h1>
         <div class="content">
           <div class="content-top">
-            <h2>①截图下面的二维码，浏览器打开，
-            <span style="color: red;">不要</span>微信直接扫码
+            <h2 id="checkbrowser">
+              检测到你
             </h2>
+
+            <div id="atweixin" class="text-center text-sm text-red">请截图该二维码，浏览器扫码打开</div>
             <ul>
               <li>
                 <!-- <h3 style="color: red;font-weight: bold;">截图本页，浏览器扫码打开</h3> -->
@@ -674,43 +688,41 @@
                   <img alt="官网永久发布页" id="qrcode">
                 </div>
               </li>
-              <li>
-                <h3 style="color: red;font-weight: bold;text-align: center;">②使用自带的浏览器打开本网页时，
-                  <br />再点下面的内容
-                </h3>
-
-                <font color="red">付费内容（主用）</font>
-                <div class="link">
-                  <div><a href="https://happyorigin_v.4everland.app/#/home/photo" target="_blank"
-                      style="color:#02a982">happyorigin_v.***</a>
+              <div id="showContent">
+                <li>
+                  <font color="red">付费内容（主用）</font>
+                  <div class="link">
+                    <div><a href="https://happyorigin_v.4everland.app/#/home/photo" target="_blank"
+                        style="color:#02a982">happyorigin_v.***</a>
+                    </div>
+                    <div class="go"><a href="https://happyorigin_v.4everland.app/#/home/photo" target="_blank">点击进入</a>
+                    </div>
                   </div>
-                  <div class="go"><a href="https://happyorigin_v.4everland.app/#/home/photo" target="_blank">点击进入</a>
-                  </div>
-                </div>
 
-              </li>
-              <li>
-                <font color="blue">付费内容备用网址1</font>
-                <div class="link">
-                  <div><a href="https://happyoriginv.netlify.app/#/home/photo" target="_blank"
-                      style="color:#02a982">happyoriginv.***</a>
+                </li>
+                <li>
+                  <font color="blue">付费内容备用网址1</font>
+                  <div class="link">
+                    <div><a href="https://happyoriginv.netlify.app/#/home/photo" target="_blank"
+                        style="color:#02a982">happyoriginv.***</a>
+                    </div>
+                    <div class="go"><a href="https://happyoriginv.netlify.app/#/home/photo" target="_blank">点击进入</a>
+                    </div>
                   </div>
-                  <div class="go"><a href="https://happyoriginv.netlify.app/#/home/photo" target="_blank">点击进入</a></div>
-                </div>
 
-              </li>
-              <li>
-                <font color="blue">免费内容（主用）</font>
-                <div class="link">
-                  <div><a href="https://imglistshare.4everland.app/public.html" target="_blank"
-                      style="color:#02a982">imglistshare.***</a>
+                </li>
+                <li>
+                  <font color="OrangeRed">免费内容（主用）</font>
+                  <div class="link">
+                    <div><a href="https://imglistshare.4everland.app/public.html" target="_blank"
+                        style="color:#02a982">imglistshare.***</a>
+                    </div>
+                    <div class="go"><a href="https://imglistshare.4everland.app/public.html" target="_blank">点击进入</a>
+                    </div>
                   </div>
-                  <div class="go"><a href="https://imglistshare.4everland.app/public.html" target="_blank">点击进入</a>
-                  </div>
-                </div>
 
-              </li>
-
+                </li>
+              </div>
               <li>
                 <h3 style="color: red;font-weight: bold;">温馨提示</h3>
                 <span style="color: blank;font-weight: bold;">1.使用浏览器打开本网页并收藏（重要）</span>
@@ -718,7 +730,6 @@
                 <span>3.都不要在微信直接点进去</span>
 
               </li>
-
 
             </ul>
           </div>
@@ -728,8 +739,24 @@
     </div>
   </div>
   <script>
+    const isweixinBrowser = /(weixin|wechat)/ig.test(navigator.userAgent);
+    const flag = isweixinBrowser ? `<span style="color:red;">在</span>` : `<span style="color:blue;">未在</span>`;
+    const atweixin = document.getElementById("atweixin");
+    const checkbrowser = document.getElementById("checkbrowser");
+    const showContent = document.getElementById("showContent");
+    checkbrowser.innerHTML += `<br/>${flag}微信打开`;
+
+    // 如果在微信打开，给予以下提示
+    if (isweixinBrowser) {
+      showContent.style.display = "none";
+    } else {
+      atweixin.innerText = "";
+    }
+  </script>
+  <script>
     document.getElementById('qrcode').setAttribute('src', 'https://www.dmxq.net/?qrcode=' + window.location);
   </script>
+
 </body>
 
 </html>
