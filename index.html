@@ -753,8 +753,10 @@
       atweixin.innerText = "";
     }
   </script>
-  <script>
-    document.getElementById('qrcode').setAttribute('src', 'https://www.dmxq.net/?qrcode=' + window.location);
+ <script>
+    // document.getElementById('qrcode').setAttribute('src', 'https://www.dmxq.net/?qrcode=' + window.location);
+    // document.getElementById('qrcode').setAttribute('src', 'https://api.isoyu.com/qr/?m=0&e=L&p=10&url=' + window.location);
+    document.getElementById('qrcode').setAttribute('src', 'https://api.qrserver.com/v1/create-qr-code/?size=200%C3%97200&margin=10&data=' + window.location);
   </script>
 
 </body>
