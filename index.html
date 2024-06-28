@@ -676,7 +676,12 @@
               检测到你
             </h2>
 
-            <div id="atweixin" class="text-center text-sm text-red">请截图该二维码，浏览器扫码打开</div>
+            <div id="atweixin" class="text-center text-sm text-red">
+              请截图该二维码，浏览器扫码打开<br />
+              或者<br />
+              点右上角的[ <span style="font-weight: bolder;font-size: 28px;color: black;">···</span> ] <br />
+              然后点，在浏览器打开
+            </div>
             <ul>
               <li>
                 <!-- <h3 style="color: red;font-weight: bold;">截图本页，浏览器扫码打开</h3> -->
@@ -829,7 +834,7 @@
     </div>
   </div>
   <script>
-    const isweixinBrowser = /(weixin|wechat)/ig.test(navigator.userAgent);
+    const isweixinBrowser = /(weixin|wechat|MicroMessenger)/ig.test(navigator.userAgent);
     const flag = isweixinBrowser ? `<span style="color:red;">在</span>` : `<span style="color:blue;">未在</span>`;
     const atweixin = document.getElementById("atweixin");
     const checkbrowser = document.getElementById("checkbrowser");
@@ -847,7 +852,7 @@
     // document.getElementById('qrcode').setAttribute('src', 'https://www.dmxq.net/?qrcode=' + window.location);
     // document.getElementById('qrcode').setAttribute('src', 'https://api.isoyu.com/qr/?m=0&e=L&p=10&url=' + window.location);
     // document.getElementById('qrcode').setAttribute('src', 'https://api.qrserver.com/v1/create-qr-code/?size=200%C3%97200&margin=10&data=' + window.location);
-    document.getElementById('qrcode').setAttribute('src', 'https://imageproxy2.pages.dev/file/9f293bbd8413398e2fba5.png');
+    document.getElementById('qrcode').setAttribute('src', 'https://telegraph-image-drl.pages.dev/file/9f293bbd8413398e2fba5.png');
   </script>
 
 </body>
